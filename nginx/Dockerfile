@@ -3,6 +3,7 @@ FROM nginx:1.29.6-alpine3.23
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN rm /etc/nginx/conf.d/default.conf && \
-	chmod 444 /etc/nginx/nginx.conf
+	chmod 444 /etc/nginx/nginx.conf && \
+	apk add --no-cache curl
 
 EXPOSE 80
