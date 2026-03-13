@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    image: me_backend:1.0
+    container_name: app_backend
+    restart: unless-stopped
+    environment: 
+      - PORT=${BACKEND_PORT}
+    networks: 
+      - app_network
+
+  nginx:
+    build: ./nginx
+    image: me_nginx:1.0
+    container_name: app_nginx
+    restart: unless-stopped
+    ports:
+      - ${NGINX_PORT}:80
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

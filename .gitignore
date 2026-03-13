@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 
 # Docker
-#.env
+.env
 *.log
 
 # Системные файлы

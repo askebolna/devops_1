@@ -1,6 +1,7 @@
+import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-PORT = 8080
+PORT = int(os.environ.get('PORT', 8080))
 RESPONSE_TEXT = "Hello from Effective Mobile!"
 
 class SimpleHandler(BaseHTTPRequestHandler):
